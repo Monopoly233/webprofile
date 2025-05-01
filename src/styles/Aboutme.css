@@ -1,0 +1,161 @@
+.about-container {
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.about-container.light {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.about-container.dark {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-container .about-content .section-title {
+  font-size: 3.5rem !important;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-primary-light);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+body.dark .about-container .about-content .section-title {
+  color: var(--text-primary-dark);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.about-container .about-content .section-title::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  bottom: -10px;
+  left: 25%;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.about-container .about-content .section-title:hover::after {
+  transform: scaleX(1);
+}
+
+@media (max-width: 768px) {
+  .about-container .about-content .section-title {
+    font-size: 2.5rem !important;
+    margin-bottom: 2rem;
+  }
+}
+
+.about-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--text-secondary-light);
+}
+
+body.dark .about-text {
+  color: var(--text-secondary-dark);
+}
+
+.about-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.detail-item {
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  background-color: var(--card-bg-light);
+}
+
+body.dark .detail-item {
+  background-color: var(--card-bg-dark);
+}
+
+.detail-item:hover {
+  transform: translateY(-5px);
+}
+
+.detail-item h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.detail-item p {
+  line-height: 1.6;
+  color: var(--text-secondary-light);
+}
+
+body.dark .detail-item p {
+  color: var(--text-secondary-dark);
+}
+
+.philosophy-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-top: 2px solid var(--primary-color);
+}
+
+.philosophy-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.philosophy-section p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  white-space: pre-line;
+  color: var(--text-secondary-light);
+}
+
+body.dark .philosophy-section p {
+  color: var(--text-secondary-dark);
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 2rem 1rem;
+  }
+
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-details {
+    grid-template-columns: 1fr;
+  }
+
+  .philosophy-section {
+    padding: 1rem;
+  }
+} 

@@ -1,0 +1,253 @@
+:root {
+  --primary-color: #3498db;
+  --primary-color-light: #5dade2;
+  --primary-color-dark: #2980b9;
+  --font-primary: 'Poppins', 'Noto Sans SC', sans-serif;
+  --font-code: 'Fira Code', monospace;
+  --bg-light: #f8f9fa;
+  --bg-dark: #121212;
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #1e1e1e;
+  --text-primary-light: #2c3e50;
+  --text-primary-dark: #ffffff;
+  --text-secondary-light: #666666;
+  --text-secondary-dark: #b0b0b0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+}
+
+code, pre, .tech-tag {
+  font-family: var(--font-code);
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100vw;
+  transition: background-color 0.3s ease;
+}
+
+body.light {
+  background-color: #ffffff;
+}
+
+body.dark {
+  background-color: #1a1a1a;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 70px;
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* 深色主题滚动条 */
+body.dark ::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+body.dark ::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+.language-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 4.375rem; /* 70px */
+  width: 2.5rem; /* 40px */
+  height: 2.5rem; /* 40px */
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language-toggle.light {
+  background-color: #f0f0f0;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.language-toggle.dark {
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.language-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .language-toggle {
+    top: 0.9375rem;
+    right: 3.4375rem;
+    width: 2.1875rem;
+    height: 2.1875rem;
+    font-size: 0.875rem;
+  }
+
+  .theme-toggle {
+    top: 0.9375rem;
+    right: 0.9375rem;
+    width: 2.1875rem;
+    height: 2.1875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-toggle {
+    top: 0.625rem;
+    right: 3.75rem; /* 调整位置，避免与汉堡菜单重叠 */
+    width: 1.875rem;
+    height: 1.875rem;
+    font-size: 0.75rem;
+  }
+
+  .theme-toggle {
+    top: 0.625rem;
+    right: 1.875rem; /* 调整位置，避免与汉堡菜单重叠 */
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+
+  /* 确保汉堡菜单有足够的空间 */
+  .menu-icon {
+    margin-right: 0.625rem;
+  }
+}
+
+/* 确保按钮之间有足够的间距 */
+.theme-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem; /* 20px */
+  width: 2.5rem; /* 40px */
+  height: 2.5rem; /* 40px */
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.theme-toggle.light {
+  background-color: #f0f0f0;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle.dark {
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 0.9375rem;
+    right: 0.9375rem;
+    width: 2.1875rem;
+    height: 2.1875rem;
+  }
+  
+  .theme-toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    top: 0.625rem;
+    right: 0.625rem;
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+
+  .theme-toggle svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* 全局背景色设置 */
+.home-section,
+.projects-section,
+.skills-container,
+.about-container {
+  transition: background-color 0.3s ease;
+}
+
+/* 明亮主题 */
+body.light .home-section,
+body.light .projects-section,
+body.light .skills-container,
+body.light .about-container {
+  background-color: var(--bg-light);
+}
+
+/* 暗色主题 */
+body.dark .home-section,
+body.dark .projects-section,
+body.dark .skills-container,
+body.dark .about-container {
+  background-color: var(--bg-dark);
+}

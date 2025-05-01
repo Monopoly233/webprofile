@@ -1,0 +1,247 @@
+.projects-section {
+  padding: 4rem 2rem;
+  transition: background-color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.projects-section.light {
+  background-color: #f8f9fa;
+}
+
+.projects-section.dark {
+  background-color: #121212;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-section .projects-container .section-title {
+  font-size: 3.5rem !important;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-primary-light);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+body.dark .projects-section .projects-container .section-title {
+  color: var(--text-primary-dark);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.projects-section .projects-container .section-title::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  bottom: -10px;
+  left: 25%;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.projects-section .projects-container .section-title:hover::after {
+  transform: scaleX(1);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--card-bg-light);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+body.dark .project-card {
+  background: var(--card-bg-dark);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-content h3 {
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+  color: var(--text-primary-light);
+}
+
+body.dark .project-content h3 {
+  color: var(--text-primary-dark);
+}
+
+.project-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+  flex: 1;
+  color: var(--text-secondary-light);
+}
+
+body.dark .project-content p {
+  color: var(--text-secondary-dark);
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  justify-content: center;
+}
+
+.project-links .btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+/* 明亮主题下的按钮样式 */
+.projects-section.light .project-links .primary-btn {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: 1px solid var(--primary-color);
+}
+
+.projects-section.light .project-links .primary-btn:hover {
+  background-color: var(--primary-color-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.projects-section.light .project-links .secondary-btn {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  color: #ffffff;
+}
+
+.projects-section.light .project-links .secondary-btn:hover {
+  background-color: var(--primary-color-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 暗色主题下的按钮样式 */
+.projects-section.dark .project-links .primary-btn {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: 1px solid var(--primary-color);
+}
+
+.projects-section.dark .project-links .primary-btn:hover {
+  background-color: var(--primary-color-light);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.projects-section.dark .project-links .secondary-btn {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  color: #ffffff;
+}
+
+.projects-section.dark .project-links .secondary-btn:hover {
+  background-color: var(--primary-color-light);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 当只有一个按钮时，让它占据更多空间 */
+.project-links .btn:only-child {
+  flex: 1;
+  text-align: center;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 2rem 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+  
+  .project-links .btn {
+    width: 100%;
+  }
+
+  .projects-section .projects-container .section-title {
+    font-size: 2.5rem !important;
+    margin-bottom: 2rem;
+  }
+} 

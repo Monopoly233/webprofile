@@ -1,0 +1,80 @@
+/* 禁用文本选择 */
+* {
+  cursor: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* 允许输入框和文本区域选择文本 */
+input, textarea {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+.cursor {
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-follower {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-15px, -15px);
+  transition: all 0.1s ease;
+}
+
+.cursor-follower.clicked {
+  transform: translate(-15px, -15px) scale(0.5);
+  border-color: var(--primary-color-light);
+}
+
+/* 链接和按钮上的光标效果 */
+a:hover ~ .cursor,
+button:hover ~ .cursor {
+  transform: scale(1.5);
+}
+
+a:hover ~ .cursor-follower,
+button:hover ~ .cursor-follower {
+  transform: translate(-15px, -15px) scale(1.5);
+}
+
+/* 亮色主题下的光标样式 */
+body.light .cursor {
+  background-color: #ff0000;
+}
+
+body.light .cursor-follower {
+  border-color: #ff0000;
+}
+
+body.light .cursor-follower.clicked {
+  border-color: #ff3333;
+}
+
+/* 暗色主题下的光标样式 */
+body.dark .cursor {
+  background-color: var(--primary-color);
+}
+
+body.dark .cursor-follower {
+  border-color: var(--primary-color);
+}
+
+body.dark .cursor-follower.clicked {
+  border-color: var(--primary-color-light);
+} 
