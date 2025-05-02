@@ -4,6 +4,7 @@ import { useTheme } from './context/ThemeContext';
 import { useLanguage } from './context/LanguageContext';
 import { translations } from './config/languages';
 import './styles/header.css';
+import svg from './assets/download.svg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,7 +37,9 @@ const Header = () => {
     <header className={`header ${isDarkMode ? 'dark' : 'light'}`}>
       <div className="header-container">
         <div className="logo">
-          <a href="#home" onClick={(e) => scrollToSection(e, 'home')}>Portfolio</a>
+          <a href="#home" onClick={(e) => scrollToSection(e, 'home')}>
+            <img src={svg} alt="logo" />
+          </a>
         </div>
         
         <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>

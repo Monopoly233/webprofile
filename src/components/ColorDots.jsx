@@ -60,8 +60,9 @@ const ColorDots = () => {
     const maxDistance = 200;
     const stretchFactor = Math.min(distance / maxDistance, 1);
     
-    // 计算角度，确保平滑过渡
+    // 使用更平滑的角度计算方法
     let angle = Math.atan2(dy, dx) * (180 / Math.PI);
+    angle = angle % 360; // 确保角度在 -360 到 360 之间
     
     return {
       width: `${stretchFactor * 100}px`,
