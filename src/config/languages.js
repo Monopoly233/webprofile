@@ -136,7 +136,7 @@ export const translations = {
         {
           title: 'AI智能代理系统',
           description: '基于LangChain开发的AI智能代理系统，使用Google Colab和Jupyter Notebook进行开发和测试。项目实现了基于图数据库的数据检索和推理功能。',
-          technologies: ['LangChain', 'Google Colab', 'Jupyter Notebook', 'Python', 'AI']
+          technologies: ['LangChain', 'Google Colab', 'Jupyter Notebook', 'Python', 'RAG']
         },
         {
           title: 'WordPress商城',
@@ -293,7 +293,7 @@ export const translations = {
         {
           title: 'AI Agent System',
           description: 'An AI agent system developed with LangChain, using Google Colab and Jupyter Notebook for development and testing. The project implements data retrieval and reasoning capabilities based on graph databases.',
-          technologies: ['LangChain', 'Google Colab', 'Jupyter Notebook', 'Python', 'AI']
+          technologies: ['LangChain', 'Google Colab', 'Jupyter Notebook', 'Python', 'RAG']
         },
         {
           title: 'WordPress E-commerce',
