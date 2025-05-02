@@ -10,16 +10,30 @@
   overflow: hidden;
 }
 
+.dot-wrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
 .color-dot {
   position: absolute;
   width: 25px;
   height: 25px;
-  border-radius: 35%;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-  transform-origin: center;
-  margin-left: -12.5px;
-  margin-top: -12.5px;
+  /* border-radius: 35%; */
+  transform: translate(-50%, -50%);
+}
+
+.line {
+  position: absolute;
+  height: 10px;
+  left: 50%;
+  top: 50%;
+  transform-origin: left center;
+  transition: width 0.8s cubic-bezier(0.2, 0.6, 0.3, 1),
+              opacity 0.8s cubic-bezier(0.2, 0.6, 0.3, 1),
+              transform 0.1s ease-out;
+  width: 0;
+  opacity: 0;
 }
 
 @media (max-width: 1200px) {
@@ -30,8 +44,6 @@
   .color-dot {
     width: 20px;
     height: 20px;
-    margin-left: -10px;
-    margin-top: -10px;
   }
 }
 
@@ -43,8 +55,6 @@
   .color-dot {
     width: 15px;
     height: 15px;
-    margin-left: -7.5px;
-    margin-top: -7.5px;
   }
 }
 

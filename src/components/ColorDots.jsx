@@ -4,6 +4,7 @@ import '../styles/ColorDots.css';
 const ColorDots = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+  const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef(null);
   const colors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3'];
   const rows = 7;
@@ -34,29 +35,38 @@ const ColorDots = () => {
     const container = containerRef.current;
     if (container) {
       container.addEventListener('mousemove', handleMouseMove);
+      container.addEventListener('mouseenter', () => setIsHovered(true));
+      container.addEventListener('mouseleave', () => setIsHovered(false));
       window.addEventListener('resize', handleResize);
-      handleResize(); // 初始化尺寸
+      handleResize();
     }
 
     return () => {
       if (container) {
         container.removeEventListener('mousemove', handleMouseMove);
+        container.removeEventListener('mouseenter', () => setIsHovered(true));
+        container.removeEventListener('mouseleave', () => setIsHovered(false));
         window.removeEventListener('resize', handleResize);
       }
     };
   }, []);
 
-  const calculateStretch = (dotX, dotY) => {
+  const calculateLine = (dotX, dotY) => {
+    if (!isHovered) return { width: '0px', opacity: 0 };
+    
     const dx = mousePosition.x - dotX;
     const dy = mousePosition.y - dotY;
     const distance = Math.sqrt(dx * dx + dy * dy);
     const maxDistance = 200;
     const stretchFactor = Math.min(distance / maxDistance, 1);
     
+    // 计算角度，确保平滑过渡
+    let angle = Math.atan2(dy, dx) * (180 / Math.PI);
+    
     return {
-      scaleX: 1 + stretchFactor * 3,
-      scaleY: 1 - stretchFactor * 0.5,
-      rotate: Math.atan2(dy, dx) * (180 / Math.PI)
+      width: `${stretchFactor * 100}px`,
+      transform: `rotate(${angle}deg)`,
+      opacity: stretchFactor
     };
   };
 
@@ -67,24 +77,28 @@ const ColorDots = () => {
         const col = index % cols;
         const color = colors[col % colors.length];
         
-        // 计算点的位置，使其从容器左上角开始
         const dotX = (containerSize.width / (cols - 1)) * col;
         const dotY = (containerSize.height / (rows - 1)) * row;
-        
-        const { scaleX, scaleY, rotate } = calculateStretch(dotX, dotY);
+        const lineStyle = calculateLine(dotX, dotY);
         
         return (
           <div
             key={index}
-            className="color-dot"
+            className="dot-wrapper"
             style={{
-              backgroundColor: color,
               left: dotX,
-              top: dotY,
-              transform: `rotate(${rotate}deg) scale(${scaleX}, ${scaleY})`,
-              transformOrigin: 'center'
+              top: dotY
             }}
-          />
+          >
+            <div className="color-dot" style={{ backgroundColor: color }} />
+            <div 
+              className="line" 
+              style={{
+                ...lineStyle,
+                backgroundColor: color
+              }} 
+            />
+          </div>
         );
       })}
     </div>
