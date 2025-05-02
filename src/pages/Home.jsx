@@ -1,8 +1,12 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../config/languages';
+import ph1 from '../assets/home/home1.jpg';
+import ph2 from '../assets/home/home2.jpg';
+import ColorDots from '../components/ColorDots';
+
 import '../styles/home.css';
 
 const Home = () => {
@@ -10,6 +14,7 @@ const Home = () => {
   const { language } = useLanguage();
   const t = translations[language].home;
   const controls = useAnimation();
+  const [currentImage, setCurrentImage] = useState(ph2);
 
   // 计算中英文文本长度
   const textLengths = useMemo(() => ({
@@ -36,6 +41,10 @@ const Home = () => {
         duration: 0.05
       }
     })
+  };
+
+  const toggleImage = () => {
+    setCurrentImage(currentImage === ph1 ? ph2 : ph1);
   };
 
   useEffect(() => {
@@ -70,9 +79,8 @@ const Home = () => {
           </div>
         </div>
         <div className="home-image">
-          {/* 这里可以放你的照片或插图 */}
-          <div className="image-placeholder">
-            <span>Your Photo</span>
+          <div className="image-placeholder" onClick={toggleImage} style={{ cursor: 'pointer' }}>
+            <img src={currentImage} alt="profile" className="home-image-1" />
           </div>
         </div>
       </div>

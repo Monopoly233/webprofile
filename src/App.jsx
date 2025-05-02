@@ -9,6 +9,7 @@ import Aboutme from './pages/Aboutme'
 import CustomCursor from './components/CustomCursor'
 import { ThemeProvider, useTheme } from './context/ThemeContext'
 import { LanguageProvider, useLanguage } from './context/LanguageContext'
+import ColorDots from './components/ColorDots'
 
 function AppContent() {
   const { isDarkMode } = useTheme();
@@ -24,6 +25,7 @@ function AppContent() {
       <Header />
       <main>
         <Home />
+        <ColorDots />
         <Projects />
         <Skills />
         <Aboutme />

@@ -144,14 +144,19 @@ body.dark .home-description {
 .image-placeholder {
   width: 300px;
   height: 300px;
-  border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
-  transition: background-color 0.3s ease;
-  background-color: var(--card-bg-light);
-  color: var(--text-secondary-light);
+  justify-content: center;
+  background-color: var(--light-bg);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 body.dark .image-placeholder {
@@ -182,6 +187,13 @@ body.dark .image-placeholder {
     justify-content: center;
   }
 
+  .image-placeholder {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
   .image-placeholder {
     width: 200px;
     height: 200px;
