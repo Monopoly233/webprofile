@@ -75,7 +75,7 @@ const Home = () => {
           </p>
           <div className="home-buttons">
             <a href="#projects" className="btn primary-btn">{t.buttons.viewWork}</a>
-            <a href="#contact" className="btn secondary-btn">{t.buttons.contact}</a>
+            {/* <a href="#contact" className="btn secondary-btn">{t.buttons.contact}</a> */}
           </div>
         </div>
         <div className="home-image">
