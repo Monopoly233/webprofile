@@ -42,15 +42,15 @@ const Projects = () => {
       link: 'https://senldev.org/',
       github: '#'
     },
-    // {
-    //   id: 4,
-    //   title: t.projects[3].title,
-    //   description: t.projects[3].description,
-    //   technologies: t.projects[3].technologies,
-    //   image: p4,
-    //   link: 'https://monopoly233.github.io/reactmovie/#/',
-    //   github: '#'
-    // }
+    {
+      id: 4,
+      title: t.projects[3].title,
+      description: t.projects[3].description,
+      technologies: t.projects[3].technologies,
+      image: p4,
+      link: 'https://monopoly233.github.io/reactmovie/#/',
+      github: '#'
+    }
   ];
 
   return (
